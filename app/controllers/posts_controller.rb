@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
-
   def index
-    posts = Post.all
+    posts = Post.all.page(params[:page]).per(6) # 1ページあたり100件としています。
     render json: { status: 'SUCCESS', message: 'Loaded posts', data: posts }
   end
 
