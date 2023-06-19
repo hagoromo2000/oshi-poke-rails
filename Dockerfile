@@ -38,10 +38,7 @@ RUN bundle install
 
 COPY . /$APP_NAME/
 
-RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile assets:clean \
-&& yarn install --production --frozen-lockfile \
-&& yarn cache clean \
-&& rm -rf /$APP_NAME/node_modules /$APP_NAME/tmp/cache
+RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile assets:clean
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
