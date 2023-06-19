@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    posts = Post.all.page(params[:page]).per(6) # 1ページあたり100件としています。
+    posts = Post.all.order(created_at: :desc).page(params[:page]).per(6) # 1ページあたり100件としています。
     render json: { status: 'SUCCESS', message: 'Loaded posts', data: posts }
   end
 
