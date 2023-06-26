@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: oshi_poke_rails_production
-  username: oshi_poke_rails
+  database: cljd4i0f000ft9tp52o0qblm7
+  username: cljd4i0ez00fr9tp54aon68pr
   password: <%= ENV['OSHI_POKE_RAILS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
